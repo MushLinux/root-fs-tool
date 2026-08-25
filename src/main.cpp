@@ -69,7 +69,7 @@ int main(int argc, char* argv[]) {
 		std::filesystem::directory_entry entry{p};
 
 		if(!entry.exists() || !entry.is_directory() || !std::filesystem::is_empty(p)) {
-			std::cout << "Not a vaild directory!\n";
+			std::cout << "Not a valid directory!\n";
 			return 1;
 		}
 
@@ -115,6 +115,7 @@ int main(int argc, char* argv[]) {
 
 		if(!hook_file_stream.is_open()) {
 			std::cout << "Failed to open hook.list\n";
+			return 1;
 		}
 
 		read_hook_file(hook_file_stream);
